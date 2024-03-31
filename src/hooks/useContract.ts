@@ -12,8 +12,6 @@ import MULTICALL2_ABI from 'constants/abi/MULTICALL2.json'
 import VEDEUS_ABI from 'constants/abi/VEDEUS.json'
 import VEDEUS_MIGRATOR_ABI from 'constants/abi/VEDEUS_MIGRATOR_ABI.json'
 import VE_DIST_ABI from 'constants/abi/VE_DIST.json'
-import SWAP_ABI from 'constants/abi/SWAP_ABI.json'
-import MasterChefV2_ABI from 'constants/abi/MasterChefV2.json'
 import VEDEUS_MULTI_REWARDER_ERC20_ABI from 'constants/abi/VEDEUS_MULTI_REWARDER_ERC20.json'
 import MIGRATOR_ABI from 'constants/abi/MIGRATOR.json'
 // import BRIDGE_ABI from 'constants/abi/BRIDGE.json'
@@ -40,7 +38,6 @@ import {
   DeusConversion_ADDRESS,
   ClaimDeus_ADDRESS,
 } from 'constants/addresses'
-import { LiquidityType, StakingType } from 'constants/stakingPools'
 
 export function useContract<T extends Contract = Contract>(
   addressOrAddressMap: string | null | undefined,
@@ -134,16 +131,6 @@ export function useCLQDRContract() {
 export function usePerpetualEscrowTokenReceiverContract() {
   const address = '0xcd3563cd8de2602701d5d9f960db30710fcc4053'
   return useContract(address, CLQDR_FULL_ABI)
-}
-
-export function useStablePoolContract(pool: LiquidityType) {
-  const address = useMemo(() => (pool ? pool.contract : undefined), [pool])
-  return useContract(address, SWAP_ABI)
-}
-
-export function useMasterChefContract(stakingPool: StakingType) {
-  const address = useMemo(() => (stakingPool ? stakingPool.masterChef : undefined), [stakingPool])
-  return useContract(address, MasterChefV2_ABI)
 }
 
 export function useVDeusMultiRewarderERC20Contract() {

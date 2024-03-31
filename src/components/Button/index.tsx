@@ -101,3 +101,49 @@ export const SecondaryButton = styled(BaseButton)`
       }
   `}
 `
+
+export const NavButton = styled.button`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  height: 35px;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.bg2};
+  border: 1px solid ${({ theme }) => theme.text3};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border: 1px solid ${({ theme }) => theme.text1};
+  }
+`
+
+export const OptionButton = styled(BaseButton)<{ active?: boolean }>`
+  height: 36px;
+  width: 62px;
+  font-size: 13px;
+  padding: 0;
+  border-radius: 6px;
+  color: ${({ theme }) => theme.text1};
+  border: 1.5px solid ${({ theme, active }) => (active ? theme.border2 : theme.border1)};
+  background: ${({ theme, active }) => (active ? theme.bg3 : 'transparent')};
+  position: relative;
+  z-index: 1;
+  transition: all 0.1s;
+  cursor: ${({ active }) => active && 'pointer'};
+
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+      margin-right: 3px;
+  `}
+
+  &:hover {
+    border: 1.5px solid ${({ theme, active }) => (active ? theme.border3 : theme.text1)};
+  }
+`

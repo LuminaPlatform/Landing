@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { INFO_URL } from 'constants/misc'
 import { makeHttpRequest } from 'utils/http'
 
 export enum DashboardStatus {
@@ -68,14 +67,14 @@ const initialState = {
 
 export const fetchDeusPrice = createAsyncThunk<any>('dashboard/fetchDeusPrice', async () => {
   // Destruct the response directly so if these params don't exist it will throw an error.
-  const { href: url } = new URL(`/info/deus/price`, INFO_URL)
+  const { href: url } = new URL(`/info/deus/price`, '')
   const deusPrice = await makeHttpRequest(url)
   return deusPrice
 })
 
 export const fetchDeiPrice = createAsyncThunk<any>('dashboard/fetchDeiPrice', async () => {
   // Destruct the response directly so if these params don't exist it will throw an error.
-  const { href: url } = new URL(`/info/dei/price`, INFO_URL)
+  const { href: url } = new URL(`/info/dei/price`, '')
   const deiPrice = await makeHttpRequest(url)
   return deiPrice
 })
