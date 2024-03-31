@@ -105,6 +105,7 @@ export default function NavBar() {
     return (
       <MobileWrapper>
         <NavLogo />
+        <PrimaryButton onClick={() => alert(waitingText)}>Launch App</PrimaryButton>
       </MobileWrapper>
     )
   }

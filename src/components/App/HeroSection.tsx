@@ -16,6 +16,10 @@ export const Title = styled.div`
   max-width: 850px;
   margin: 30px;
   margin-left: 0;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size: 50px;
+    line-height: 60px;
+  `};
 `
 
 export const SubTitle = styled(Title)`
@@ -23,6 +27,9 @@ export const SubTitle = styled(Title)`
   font-weight: 400;
   line-height: 38px;
   color: ${({ theme }) => theme.G60};
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size: 20px;
+  `};
 `
 
 export default function HeroSection() {

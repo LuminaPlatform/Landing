@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 export default function NavLogo() {
   function getImageSize() {
-    return isMobile ? 30 : 105
+    return isMobile ? 85 : 105
   }
 
   return (
