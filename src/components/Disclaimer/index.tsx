@@ -74,7 +74,7 @@ export function Footer() {
   return (
     <Wrapper>
       <Logos>
-        <ExternalLink href="https://discord.com/RTEfMJKb6U">
+        <ExternalLink href="https://discord.com/invite/RTEfMJKb6U">
           <Image src={Discord} alt="Discord Logo" width={getImageSize()} height={getImageSize()} />
         </ExternalLink>
         <ExternalLink href="https://twitter.com/LuminaPlatform">
