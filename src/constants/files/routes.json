@@ -2,21 +2,21 @@
   {
     "id": "1",
     "text": "RetroPGF3 Projects",
-    "path": "/"
+    "path": "#retro-rgf3-projects"
   },
   {
     "id": "2",
     "text": "Trusted Community",
-    "path": "/"
+    "path": "#trusted-community"
   },
   {
     "id": "3",
     "text": "Trusted Reviews",
-    "path": "/"
+    "path": "#trusted-reviews"
   },
   {
     "id": "4",
     "text": "About Us",
-    "path": "/"
+    "path": "#about-us"
   }
 ]
