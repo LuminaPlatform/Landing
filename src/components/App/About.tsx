@@ -40,9 +40,9 @@ const About = () => {
         columns={[1, null, 3]}
         mt="24px"
       >
-        <Value category="User" src="/static/images/user-check.png" title="+164" />
-        <Value category="Project" src="/static/images/attachment.png" title="104" />
-        <Value category="Review" src="/static/images/message-secure.png" title="1182" />
+        <Value category="User" src="/static/images/user-check.png" title="" />
+        <Value category="Project" src="/static/images/attachment.png" title="" />
+        <Value category="Review" src="/static/images/message-secure.png" title="" />
       </SimpleGrid>
     </VStack>
   )

@@ -17,6 +17,7 @@ import LiveChat from 'components/LiveChat'
 import store from '../state'
 import { getLibrary } from '../utils/library'
 import { chakraTheme } from 'theme/chakraConfig'
+import Head from 'next/head'
 
 const Updaters = dynamic(() => import('../state/updaters'), { ssr: false })
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), {
@@ -30,27 +31,32 @@ if (typeof window !== 'undefined' && !!window.ethereum) {
 export default function MyApp({ Component, pageProps }: AppProps) {
   useAnalyticsReporter()
   return (
-    <ReduxProvider store={store}>
-      <Web3ReactProvider getLibrary={getLibrary}>
-        <Web3ProviderNetwork getLibrary={getLibrary}>
-          <Web3ReactManager>
-            <ThemeProvider>
-              <ThemedGlobalStyle />
-              <ModalProvider backgroundComponent={ModalBackground}>
-                <Toaster position="bottom-center" />
-                <LiveChat />
-                <Popups />
-                <Updaters />
-                <ChakraProvider theme={chakraTheme}>
-                  <Layout>
-                    <Component {...pageProps} />
-                  </Layout>
-                </ChakraProvider>
-              </ModalProvider>
-            </ThemeProvider>
-          </Web3ReactManager>
-        </Web3ProviderNetwork>
-      </Web3ReactProvider>
-    </ReduxProvider>
+    <>
+      <Head>
+        <link rel="icon" href="/static/images/favicon.png" sizes="any" />
+      </Head>
+      <ReduxProvider store={store}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Web3ProviderNetwork getLibrary={getLibrary}>
+            <Web3ReactManager>
+              <ThemeProvider>
+                <ThemedGlobalStyle />
+                <ModalProvider backgroundComponent={ModalBackground}>
+                  <Toaster position="bottom-center" />
+                  <LiveChat />
+                  <Popups />
+                  <Updaters />
+                  <ChakraProvider theme={chakraTheme}>
+                    <Layout>
+                      <Component {...pageProps} />
+                    </Layout>
+                  </ChakraProvider>
+                </ModalProvider>
+              </ThemeProvider>
+            </Web3ReactManager>
+          </Web3ProviderNetwork>
+        </Web3ReactProvider>
+      </ReduxProvider>
+    </>
   )
 }

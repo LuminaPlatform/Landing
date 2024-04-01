@@ -60,7 +60,7 @@ export function Disclaimer() {
     <Wrapper>
       <Text>
         <ExternalLink href="https://lumina.credit" style={{ opacity: 0.5 }}>
-          {new Date().getFullYear()} Lumina. All rights to the people.
+          © {new Date().getFullYear()} Lumina Platform. All rights reserved.
         </ExternalLink>
       </Text>
     </Wrapper>
