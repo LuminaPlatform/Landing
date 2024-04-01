@@ -4,10 +4,7 @@ import { Row } from 'components/Row'
 import { waitingText } from 'constants/misc'
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  margin-left: 25px;
-  margin-top: 12rem;
-`
+export const Container = styled.div``
 
 export const Title = styled.div`
   font-size: 72px;
@@ -34,7 +31,7 @@ export const SubTitle = styled(Title)`
 
 export default function HeroSection() {
   return (
-    <Container>
+    <Container id="retro-rgf3-projects">
       <Title>Discover through RetroPGF3 community</Title>
       <SubTitle>Discover through RetroPGF3 community</SubTitle>
       <Row style={{ gap: '24px' }}>
