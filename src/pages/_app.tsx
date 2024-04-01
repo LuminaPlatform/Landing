@@ -4,6 +4,7 @@ import { ModalProvider } from 'styled-react-modal'
 import dynamic from 'next/dynamic'
 import type { AppProps } from 'next/app'
 import { Toaster } from 'react-hot-toast'
+import { ChakraProvider } from '@chakra-ui/react'
 
 import Web3ReactManager from '../components/Web3ReactManager'
 import ThemeProvider, { ThemedGlobalStyle } from '../theme'
@@ -15,6 +16,7 @@ import LiveChat from 'components/LiveChat'
 
 import store from '../state'
 import { getLibrary } from '../utils/library'
+import { chakraTheme } from 'theme/chakraConfig'
 
 const Updaters = dynamic(() => import('../state/updaters'), { ssr: false })
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), {
@@ -39,9 +41,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                 <LiveChat />
                 <Popups />
                 <Updaters />
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
+                <ChakraProvider theme={chakraTheme}>
+                  <Layout>
+                    <Component {...pageProps} />
+                  </Layout>
+                </ChakraProvider>
               </ModalProvider>
             </ThemeProvider>
           </Web3ReactManager>
