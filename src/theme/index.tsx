@@ -386,14 +386,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  * {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    // overflow-y: hidden;
-  }
-  *::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;

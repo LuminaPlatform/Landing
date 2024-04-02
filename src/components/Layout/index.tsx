@@ -10,12 +10,12 @@ const Wrapper = styled.div`
   height: 100%;
   flex-flow: column nowrap;
   position: relative;
+  overflow: hidden;
 `
 
 const Content = styled.div`
   position: relative;
   min-height: calc(970px - 55px - 67px);
-  overflow: scroll;
   padding-bottom: 50px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -55,21 +55,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         opacity="0.4"
         blur="2xl"
         zIndex={-1}
-        background="radial-gradient(rgba(102,0,204,0.5), rgba(102,0,204,0))"
-        width="full"
+        background="rgba(102,0,204,0.5)"
+        width="200px"
         position="absolute"
-        height="241px"
-        bottom="-30px"
-        right="-40%"
+        height="50px"
+        bottom="0px"
+        right="0px"
+        boxShadow={`0 0 ${200}px ${200}px rgba(102,0,204,0.5)`}
       />
       <Box
         opacity="0.12"
         zIndex={-1}
-        background="radial-gradient(rgba(6,194,112,0.8), rgba(6,194,112,0))"
+        boxShadow={`0 0 ${200}px ${200}px rgba(6,194,112,0.8)`}
+        background="rgba(6,194,112,0.8)"
         width="full"
         position="absolute"
-        height="241px"
-        bottom="-20px"
+        height="50px"
+        bottom="0px"
         right="0px"
       />
       <Img
