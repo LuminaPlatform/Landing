@@ -7,6 +7,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
+  margin-bottom: 16rem;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    margin-bottom: 6rem;
+  `};
 `
 
 export const Title = styled.div`

@@ -17,7 +17,6 @@ import LiveChat from 'components/LiveChat'
 import store from '../state'
 import { getLibrary } from '../utils/library'
 import { chakraTheme } from 'theme/chakraConfig'
-import Head from 'next/head'
 
 const Updaters = dynamic(() => import('../state/updaters'), { ssr: false })
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), {
@@ -32,9 +31,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   useAnalyticsReporter()
   return (
     <>
-      <Head>
-        <link rel="icon" href="/static/images/favicon.png" sizes="any" />
-      </Head>
       <ReduxProvider store={store}>
         <Web3ReactProvider getLibrary={getLibrary}>
           <Web3ProviderNetwork getLibrary={getLibrary}>
