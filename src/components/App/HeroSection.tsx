@@ -96,22 +96,26 @@ export default function HeroSection() {
       />
 
       <Box
-        width="400px"
-        height="400px"
+        rounded="full"
+        width="200px"
+        height="200px"
         opacity="0.3"
         position="absolute"
         left="-170px"
         top="-100%"
-        background="radial-gradient(rgba(255,204,0,0.5),rgba(255,204,0,0))"
+        boxShadow={`0 0 ${200}px ${200}px rgba(255,204,0,0.5)`}
+        backgroundColor="rgba(255,204,0,0.5)"
       />
       <Box
-        width={{ base: '350px', md: '500px' }}
-        height={{ base: '350px', md: '500px' }}
+        rounded="full"
+        width={{ base: '100px', md: '300px' }}
+        height={{ base: '100px', md: '300px' }}
         opacity="0.3"
         position="absolute"
         right="0"
         top="0"
-        background="radial-gradient(rgba(6,194,112,0.5),rgba(6,194,112,0))"
+        boxShadow={`0 0 ${150}px ${150}px rgba(6,194,112,0.5)`}
+        background="rgba(6,194,112,0.5)"
       >
         <Img src="/static/images/radial_path.png" />
       </Box>
