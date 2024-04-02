@@ -368,24 +368,16 @@ const Table = () => {
 
   return (
     <Box overflow="auto" width="full" pt="24px">
-      <ChakraTable>
+      <ChakraTable overflow="hidden" bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
         <Thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <Tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <Th
-                  title={
-                    header.column.getCanSort()
-                      ? header.column.getNextSortingOrder() === 'asc'
-                        ? 'Sort ascending'
-                        : header.column.getNextSortingOrder() === 'desc'
-                        ? 'Sort descending'
-                        : 'Clear sort'
-                      : undefined
-                  }
+                  borderColor="gray.600"
                   onClick={header.column.getToggleSortingHandler()}
                   whiteSpace="nowrap"
-                  p="12px 8px"
+                  p="12px 22px !important"
                   fontSize="16px"
                   fontWeight="bold"
                   color="gray.60"
@@ -394,10 +386,15 @@ const Table = () => {
                   {console.log(header.column.getIsSorted())}
                   <HStack>
                     <Text>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
-                    {{
-                      asc: <Icon transform="rotate(45deg)" as={ArrowDown} />,
-                      desc: <Icon as={ArrowDown} />,
-                    }[header.column.getIsSorted() as string] ?? null}
+                    {header.column.getIsSorted() === 'asc' ? (
+                      <Box>
+                        <Icon as={ArrowDown} />
+                      </Box>
+                    ) : header.column.getIsSorted() === 'desc' ? (
+                      <Box transform="rotate(180deg)">
+                        <Icon as={ArrowDown} />
+                      </Box>
+                    ) : null}
                   </HStack>
                 </Th>
               ))}
@@ -406,9 +403,16 @@ const Table = () => {
         </Thead>
         <Tbody>
           {table.getRowModel().rows.map((row) => (
-            <Tr key={row.id}>
+            <Tr
+              _last={{
+                td: {
+                  border: 'none',
+                },
+              }}
+              key={row.id}
+            >
               {row.getVisibleCells().map((cell) => (
-                <Td p="12px 8px" color="gray.0" fontSize="16px" fontWeight="bold" key={cell.id}>
+                <Td borderColor="gray.600" p="12px 22px" color="gray.0" fontSize="16px" fontWeight="bold" key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </Td>
               ))}
