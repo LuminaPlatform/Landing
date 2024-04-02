@@ -2,11 +2,13 @@ import HeroSection from '../components/App/HeroSection'
 import LandingSection from 'components/App/LandingSection'
 import { Container } from '@chakra-ui/react'
 import About from 'components/App/About'
+import Table from 'components/App/Table'
 
 export default function Index() {
   return (
     <Container pt={['40px', null, '120px']} maxWidth="1440px" px={['20px', null, '40px', '60px']}>
       <HeroSection />
+      <Table />
       <LandingSection
         id="trusted-community"
         href="#"

@@ -16,7 +16,6 @@ const Wrapper = styled.div`
 const Content = styled.div`
   position: relative;
   min-height: calc(970px - 55px - 67px);
-  overflow: scroll;
   padding-bottom: 50px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
