@@ -21,6 +21,8 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { useMemo, useState } from 'react'
+import styled from 'styled-components'
+
 const CheckMarkIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -38,6 +40,7 @@ const CheckMarkIcon = () => (
     />
   </svg>
 )
+
 export const ListIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path
@@ -81,6 +84,7 @@ export const ListIcon = () => (
     />
   </svg>
 )
+
 export const ArrowDown = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path
@@ -95,6 +99,15 @@ export const ArrowDown = () => (
     />
   </svg>
 )
+
+export const Title = styled.div`
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size: 26px;
+  `};
+`
 
 type RetroTable = {
   id: number
@@ -368,6 +381,7 @@ const Table = () => {
 
   return (
     <Box overflow="auto" width="full" pt="24px">
+      <Title>RetroPGF3 Projects</Title>
       <ChakraTable overflow="hidden" bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
         <Thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -420,7 +434,6 @@ const Table = () => {
           ))}
         </Tbody>
       </ChakraTable>
-
       <Button
         borderRadius="8px"
         marginTop="32px"

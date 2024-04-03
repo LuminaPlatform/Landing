@@ -41,6 +41,8 @@ class MyDocument extends Document {
             <link rel="apple-touch-icon" sizes="192x192" href="/images/192x192_App_Icon.png" />
             <link rel="apple-touch-icon" sizes="512x512" href="/images/512x512_App_Icon.png" />
 
+            <link rel="icon" href="/static/images/favicon.png" sizes="any" />
+
             <title>Lumina</title>
             <meta name="description" content="Lumina Landing" />
 
