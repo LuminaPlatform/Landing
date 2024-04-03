@@ -110,19 +110,27 @@ export default function HeroSection() {
         top="-100%"
         boxShadow={`0 0 ${200}px ${200}px rgba(255,204,0,0.5)`}
         backgroundColor="rgba(255,204,0,0.5)"
+        zIndex={-1}
       />
       <Box
         rounded="full"
         width={{ base: '100px', md: '300px' }}
         height={{ base: '100px', md: '300px' }}
-        opacity="0.3"
         position="absolute"
         right="0"
         top="0"
-        boxShadow={`0 0 ${150}px ${150}px rgba(6,194,112,0.5)`}
-        background="rgba(6,194,112,0.5)"
       >
-        <Img src="/static/images/radial_path.png" />
+        <Box
+          rounded="full"
+          width={{ base: '100px', md: '300px' }}
+          height={{ base: '100px', md: '300px' }}
+          boxShadow={`0 0 ${150}px ${150}px rgba(6,194,112,0.5)`}
+          background="rgba(6,194,112,0.5)"
+          opacity="0.3"
+          position="absolute"
+          zIndex={-1}
+        />
+        <Img width="auto" height="auto" src="/static/images/radial_path.png" />
       </Box>
       <Title>Discover through RetroPGF3 community</Title>
       <SubTitle>Discover through RetroPGF3 community</SubTitle>
