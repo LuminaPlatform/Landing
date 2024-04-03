@@ -17,6 +17,7 @@ import LiveChat from 'components/LiveChat'
 import store from '../state'
 import { getLibrary } from '../utils/library'
 import { chakraTheme } from 'theme/chakraConfig'
+import '../styles.css'
 
 const Updaters = dynamic(() => import('../state/updaters'), { ssr: false })
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), {
