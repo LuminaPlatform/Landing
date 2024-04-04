@@ -39,7 +39,7 @@ export const SubTitle = styled(Title)`
 
 export default function HeroSection() {
   return (
-    <Container id="retro-rgf3-projects">
+    <Container>
       <Img
         display={{ base: 'none', md: 'inline-block' }}
         width="23px"
@@ -110,19 +110,30 @@ export default function HeroSection() {
         top="-100%"
         boxShadow={`0 0 ${200}px ${200}px rgba(255,204,0,0.5)`}
         backgroundColor="rgba(255,204,0,0.5)"
+        zIndex={-1}
       />
       <Box
         rounded="full"
-        width={{ base: '100px', md: '300px' }}
-        height={{ base: '100px', md: '300px' }}
-        opacity="0.3"
+        width={{ base: '100px', md: '1102px' }}
+        height={{ base: '100px', md: '1102px' }}
         position="absolute"
-        right="0"
-        top="0"
-        boxShadow={`0 0 ${150}px ${150}px rgba(6,194,112,0.5)`}
-        background="rgba(6,194,112,0.5)"
+        right="-500px"
+        top="-400px"
       >
-        <Img src="/static/images/radial_path.png" />
+        <Img width="1102px" height="1102px" src="/static/images/radial_path.png" />
+        <Box
+          rounded="full"
+          width={{ base: '100px', md: '150px' }}
+          height={{ base: '100px', md: '150px' }}
+          boxShadow={`0 0 ${150}px ${150}px rgba(6,194,112,0.5)`}
+          background="rgba(6,194,112,0.5)"
+          opacity="0.3"
+          position="absolute"
+          top="50%"
+          right="60%"
+          transform="translateY(-50%)"
+          zIndex={-1}
+        />
       </Box>
       <Title>Discover through RetroPGF3 community</Title>
       <SubTitle>Discover through RetroPGF3 community</SubTitle>

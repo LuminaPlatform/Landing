@@ -6,7 +6,7 @@ import Table from 'components/App/Table'
 
 export default function Index() {
   return (
-    <Container pt={['40px', null, '120px']} maxWidth="1440px" px={['20px', null, '40px', '60px']}>
+    <Container position="relative" pt={['40px', null, '120px']} maxWidth="1280px" px={['20px', null, '40px', '60px']}>
       <HeroSection />
       <Table />
       <LandingSection
@@ -18,6 +18,7 @@ export default function Index() {
         description="<p>We form our community using a handful of RetroPGF3 badge holders at first. Then, we build upon the community by using their connections gradually until we form a big community. <br/> <br/> This is to make sure that we have a decentralized but still reliable solution based on blockchain. </p>"
       />
       <LandingSection
+        hasShadow
         id="trusted-reviews"
         href="#"
         title="Trusted Reviews"

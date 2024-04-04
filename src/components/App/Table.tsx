@@ -11,6 +11,8 @@ import {
   Th,
   Icon,
   Button,
+  Img,
+  Divider,
 } from '@chakra-ui/react'
 import {
   createColumnHelper,
@@ -20,6 +22,7 @@ import {
   SortingState,
   useReactTable,
 } from '@tanstack/react-table'
+import { tableData } from 'constants/tableData'
 import { useMemo, useState } from 'react'
 import styled from 'styled-components'
 
@@ -114,160 +117,19 @@ type RetroTable = {
   project: {
     name: string
     src: string
-    cryptosImg: Array<{ id: number; src: string }>
+    cryptosImg: Array<{ id: number; src: JSX.Element; title: string }>
   }
   category: string
-  allocated: string
-  inBallots: string
-  inLists: string
+  allocated: number
+  inBallots: number
+  inLists: number
   tags: Array<{ id: number; color: { bg: string; txt: string }; title: string; value: number }>
 }
 
 const Table = () => {
+  const networkThreshold = 7
   const [sorting, setSorting] = useState<SortingState>([])
-  const data = useMemo<RetroTable[]>(
-    () => [
-      {
-        id: 0,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '109',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-            { id: 2, src: '' },
-            { id: 3, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
-          { id: 1, color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' }, title: 'OP STACK', value: 3 },
-        ],
-      },
-      {
-        id: 1,
-        allocated: '660k OP',
-        category: 'Utilities +1',
-        inBallots: '110',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-            { id: 2, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
-        ],
-      },
-      {
-        id: 2,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '108',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-            { id: 2, src: '' },
-            { id: 3, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(255, 234, 150, 1)', txt: 'rgba(156, 124, 0, 1)' }, title: 'END UX', value: 2 },
-          { id: 1, color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' }, title: 'OP STACK', value: 3 },
-        ],
-      },
-      {
-        id: 3,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '111',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
-          { id: 1, color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' }, title: 'OP STACK', value: 3 },
-        ],
-      },
-      {
-        id: 3,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '105',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(150, 191, 252, 1)', txt: 'rgba(0, 60, 151, 1)' }, title: 'COLL GOV', value: 0 },
-          { id: 1, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
-          { id: 2, color: { bg: 'rgba(255, 234, 150, 1)', txt: 'rgba(156, 124, 0, 1)' }, title: 'END UX', value: 2 },
-          { id: 3, color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' }, title: 'OP STACK', value: 3 },
-        ],
-      },
-      {
-        id: 3,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '120',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
-          { id: 1, color: { bg: 'rgba(255, 234, 150, 1)', txt: 'rgba(156, 124, 0, 1)' }, title: 'END UX', value: 2 },
-        ],
-      },
-      {
-        id: 3,
-        allocated: '660k OP',
-        category: 'Utilities',
-        inBallots: '111',
-        inLists: '14',
-        project: {
-          name: 'Protocol Guild',
-          cryptosImg: [
-            { id: 0, src: '' },
-            { id: 1, src: '' },
-          ],
-          src: '',
-        },
-        tags: [
-          { id: 1, color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' }, title: 'OP STACK', value: 3 },
-        ],
-      },
-    ],
-    []
-  )
+  const data = useMemo<RetroTable[]>(() => tableData, [])
   const columnHelper = createColumnHelper<RetroTable>()
 
   const columns = [
@@ -278,15 +140,47 @@ const Table = () => {
     columnHelper.accessor('project', {
       cell: (info) => (
         <HStack columnGap="8px" margin="0px !important">
-          <Box width="36px" height="36px" bg="primary.50" rounded="full" />
-          {/* <Img src={info.getValue().src} /> */}
+          <Img rounded="full" width="36px" height="36px" src={info.getValue().src} />
           <VStack rowGap="6px" margin="0px !important">
-            <Text>{info.getValue().name}</Text>
-            <HStack width="full" justifyContent="flex-start" columnGap="4px" margin="0px !important">
-              {info.getValue().cryptosImg.map((img) => (
-                //   <Img key={img.id} src={img.src} />
-                <Box width="16px" height="16px" bg="primary.50" key={img.id} />
-              ))}
+            <Text textAlign="left" width="full">
+              {info.getValue().name}
+            </Text>
+            <HStack
+              width="full"
+              justifyContent="flex-start"
+              columnGap="4px"
+              margin="0px !important"
+              {...(info.getValue().cryptosImg.length <= 3 && {
+                divider: (
+                  <Divider rounded="full" margin="0px !important" width="1px" height="1px" borderColor="gray.60" />
+                ),
+              })}
+            >
+              {info
+                .getValue()
+                .cryptosImg.slice(0, networkThreshold)
+                .map((img) =>
+                  info.getValue().cryptosImg.length <= 3 ? (
+                    <HStack columnGap="2px" margin="0px !important">
+                      {img.src}
+                      <Text
+                        margin="0px !important"
+                        display="flex"
+                        whiteSpace="nowrap"
+                        color="gray.60"
+                        fontSize="xs"
+                        fontWeight="500"
+                      >
+                        {img.title}
+                      </Text>
+                    </HStack>
+                  ) : (
+                    img.src
+                  )
+                )}
+              {info.getValue().cryptosImg.length > networkThreshold && (
+                <Text margin="0px !important">+{info.getValue().cryptosImg.length - networkThreshold}</Text>
+              )}
             </HStack>
           </VStack>
         </HStack>
@@ -299,7 +193,7 @@ const Table = () => {
     }),
     columnHelper.accessor('allocated', {
       header: () => 'Allocated',
-      cell: (info) => <Text>{info.getValue()} </Text>,
+      cell: (info) => <Text>{info.getValue() / 1000}K OP </Text>,
     }),
     columnHelper.accessor('inBallots', {
       header: 'In Ballots',
@@ -366,7 +260,6 @@ const Table = () => {
       ),
     }),
   ]
-  console.log({ sorting })
 
   const table = useReactTable({
     data,
@@ -380,60 +273,82 @@ const Table = () => {
   })
 
   return (
-    <Box overflow="auto" width="full" pt="24px">
+    <Box id="retro-rgf3-projects" position="relative" width="full" pt="24px">
+      <Box
+        zIndex={-1}
+        rounded="full"
+        width="200px"
+        height="200px"
+        opacity="0.2"
+        position="absolute"
+        left="0px"
+        top="0px"
+        boxShadow={`0 0 ${200}px ${200}px rgba(255, 136, 0, 0.5)`}
+        backgroundColor="rgba(255, 136, 0, 0.5)"
+      />
       <Title>RetroPGF3 Projects</Title>
-      <ChakraTable overflow="hidden" bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
-        <Thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <Tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <Th
-                  borderColor="gray.600"
-                  onClick={header.column.getToggleSortingHandler()}
-                  whiteSpace="nowrap"
-                  p="12px 22px !important"
-                  fontSize="16px"
-                  fontWeight="bold"
-                  color="gray.60"
-                  key={header.id}
-                >
-                  {console.log(header.column.getIsSorted())}
-                  <HStack>
-                    <Text>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
-                    {header.column.getIsSorted() === 'asc' ? (
-                      <Box>
-                        <Icon as={ArrowDown} />
-                      </Box>
-                    ) : header.column.getIsSorted() === 'desc' ? (
-                      <Box transform="rotate(180deg)">
-                        <Icon as={ArrowDown} />
-                      </Box>
-                    ) : null}
-                  </HStack>
-                </Th>
-              ))}
-            </Tr>
-          ))}
-        </Thead>
-        <Tbody>
-          {table.getRowModel().rows.map((row) => (
-            <Tr
-              _last={{
-                td: {
-                  border: 'none',
-                },
-              }}
-              key={row.id}
-            >
-              {row.getVisibleCells().map((cell) => (
-                <Td borderColor="gray.600" p="12px 22px" color="gray.0" fontSize="16px" fontWeight="bold" key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </Td>
-              ))}
-            </Tr>
-          ))}
-        </Tbody>
-      </ChakraTable>
+      <Box fontFamily="satoshi" overflow="auto" width="full">
+        <ChakraTable bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
+          <Thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <Tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <Th
+                    fontFamily="satoshi"
+                    borderColor="gray.600"
+                    onClick={header.column.getToggleSortingHandler()}
+                    whiteSpace="nowrap"
+                    p="12px 22px !important"
+                    fontSize="16px"
+                    fontWeight="bold"
+                    color="gray.60"
+                    key={header.id}
+                  >
+                    {console.log(header.column.getIsSorted())}
+                    <HStack>
+                      <Text>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
+                      {header.column.getIsSorted() === 'asc' ? (
+                        <Box>
+                          <Icon as={ArrowDown} />
+                        </Box>
+                      ) : header.column.getIsSorted() === 'desc' ? (
+                        <Box transform="rotate(180deg)">
+                          <Icon as={ArrowDown} />
+                        </Box>
+                      ) : null}
+                    </HStack>
+                  </Th>
+                ))}
+              </Tr>
+            ))}
+          </Thead>
+          <Tbody>
+            {table.getRowModel().rows.map((row) => (
+              <Tr
+                _last={{
+                  td: {
+                    border: 'none',
+                  },
+                }}
+                key={row.id}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <Td
+                    borderColor="gray.600"
+                    p="12px 22px"
+                    color="gray.0"
+                    fontSize="16px"
+                    fontWeight="500"
+                    key={cell.id}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </Td>
+                ))}
+              </Tr>
+            ))}
+          </Tbody>
+        </ChakraTable>
+      </Box>
       <Button
         borderRadius="8px"
         marginTop="32px"

@@ -16,6 +16,7 @@ export const chakraTheme = extendTheme({
   styles: {
     global: {
       'html, body': {
+        fontFamily: 'Lexend',
         scrollBehavior: 'smooth',
       },
       body: {

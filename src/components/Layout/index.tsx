@@ -24,7 +24,7 @@ const Content = styled.div`
   `}
 
   @media screen and (min-height: 1040px) {
-    height: calc(100vh - 55px - 60px);
+    /* height: calc(100vh - 55px - 60px); */
   }
 `
 
