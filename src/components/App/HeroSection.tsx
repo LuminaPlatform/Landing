@@ -39,7 +39,7 @@ export const SubTitle = styled(Title)`
 
 export default function HeroSection() {
   return (
-    <Container id="retro-rgf3-projects">
+    <Container>
       <Img
         display={{ base: 'none', md: 'inline-block' }}
         width="23px"

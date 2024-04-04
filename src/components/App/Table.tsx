@@ -260,7 +260,6 @@ const Table = () => {
       ),
     }),
   ]
-  console.log({ sorting })
 
   const table = useReactTable({
     data,
@@ -274,7 +273,7 @@ const Table = () => {
   })
 
   return (
-    <Box position="relative" width="full" pt="24px">
+    <Box id="retro-rgf3-projects" position="relative" width="full" pt="24px">
       <Box
         zIndex={-1}
         rounded="full"
