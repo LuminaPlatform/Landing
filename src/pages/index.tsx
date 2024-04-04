@@ -6,7 +6,7 @@ import Table from 'components/App/Table'
 
 export default function Index() {
   return (
-    <Container pt={['40px', null, '120px']} maxWidth="1280px" px={['20px', null, '40px', '60px']}>
+    <Container position="relative" pt={['40px', null, '120px']} maxWidth="1280px" px={['20px', null, '40px', '60px']}>
       <HeroSection />
       <Table />
       <LandingSection
