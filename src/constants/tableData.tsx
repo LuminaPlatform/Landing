@@ -1,5 +1,5 @@
-import { Icon } from '@chakra-ui/react'
-import { OneInch, BNB, Optimism, Ethereum } from '../components/Icons/CryptoIcons'
+// import { Icon } from '@chakra-ui/react'
+// import { OneInch, BNB, Optimism, Ethereum } from '../components/Icons/CryptoIcons'
 export const tableData = [
   {
     id: 0,
@@ -10,9 +10,9 @@ export const tableData = [
     project: {
       name: 'Solidity',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
       ],
       src: '/static/images/Solidity.png',
     },
@@ -30,8 +30,8 @@ export const tableData = [
     project: {
       name: 'ethers.js',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -45,7 +45,9 @@ export const tableData = [
     inLists: 10,
     project: {
       name: 'Otterscan',
-      cryptosImg: [{ id: 0, src: <Icon as={OneInch} />, title: 'OneInch' }],
+      cryptosImg: [
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' }
+      ],
       src: '/static/images/default_project.png',
     },
     tags: [
@@ -62,17 +64,17 @@ export const tableData = [
     project: {
       name: 'Hardhat',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
-        { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 8, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 9, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 10, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 8, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 9, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 10, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -90,11 +92,11 @@ export const tableData = [
     project: {
       name: 'go-ethereum',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
-        { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -112,14 +114,14 @@ export const tableData = [
     project: {
       name: 'L2BEAT 💗',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
-        { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -138,14 +140,14 @@ export const tableData = [
     project: {
       name: 'Vyper',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
-        { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -163,13 +165,13 @@ export const tableData = [
     project: {
       name: 'Protocol Guild',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
-        { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
-        { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
-        { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 2, src: <Icon as={Optimism} />, title: 'Optimism' },
+        // { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
+        // { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
       src: '/static/images/default_project.png',
     },
@@ -204,8 +206,8 @@ export const tableData = [
     project: {
       name: 'beaconcha.in',
       cryptosImg: [
-        { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
-        { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
+        // { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
+        // { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
       ],
       src: '/static/images/default_project.png',
     },
