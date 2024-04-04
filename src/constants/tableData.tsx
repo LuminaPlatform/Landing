@@ -33,7 +33,7 @@ export const tableData = [
         { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
         { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [{ id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 }],
   },
@@ -46,7 +46,7 @@ export const tableData = [
     project: {
       name: 'Otterscan',
       cryptosImg: [{ id: 0, src: <Icon as={OneInch} />, title: 'OneInch' }],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(255, 234, 150, 1)', txt: 'rgba(156, 124, 0, 1)' }, title: 'END UX', value: 2 },
@@ -74,7 +74,7 @@ export const tableData = [
         { id: 9, src: <Icon as={Ethereum} />, title: 'Ethereum' },
         { id: 10, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
@@ -96,7 +96,7 @@ export const tableData = [
         { id: 3, src: <Icon as={Ethereum} />, title: 'Ethereum' },
         { id: 4, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 1, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
@@ -121,7 +121,7 @@ export const tableData = [
         { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
         { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(150, 191, 252, 1)', txt: 'rgba(0, 60, 151, 1)' }, title: 'COLL GOV', value: 0 },
@@ -147,7 +147,7 @@ export const tableData = [
         { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
         { id: 7, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
@@ -171,7 +171,7 @@ export const tableData = [
         { id: 5, src: <Icon as={Ethereum} />, title: 'Ethereum' },
         { id: 6, src: <Icon as={Ethereum} />, title: 'Ethereum' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
@@ -188,7 +188,7 @@ export const tableData = [
     project: {
       name: 'DefiLlama',
       cryptosImg: [],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
@@ -207,7 +207,7 @@ export const tableData = [
         { id: 0, src: <Icon as={OneInch} />, title: 'OneInch' },
         { id: 1, src: <Icon as={BNB} />, title: 'BNB' },
       ],
-      src: '',
+      src: '/static/images/default_project.png',
     },
     tags: [
       { id: 0, color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' }, title: 'DEV ECO', value: 1 },
