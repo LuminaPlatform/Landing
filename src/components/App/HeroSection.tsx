@@ -153,7 +153,7 @@ export default function HeroSection() {
           color="gray.0"
         >
           Explore Projects
-          <CircleArrowRight style={{ marginLeft: '4px' }} />
+          <CircleArrowRight style={{ marginLeft: '4px', minWidth: '20px', minHeight: '20px' }} />
         </Button>
 
         <Button
