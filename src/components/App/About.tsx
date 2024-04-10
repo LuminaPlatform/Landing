@@ -41,7 +41,7 @@ const About = () => {
         mt="24px"
       >
         <Value category="User" src="/static/images/user-check.png" title="" />
-        <Value category="Project" src="/static/images/attachment.png" title="" />
+        <Value category="Project" src="/static/images/attachment.png" title="643" />
         <Value category="Review" src="/static/images/message-secure.png" title="" />
       </SimpleGrid>
     </VStack>

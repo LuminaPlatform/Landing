@@ -1,9 +1,8 @@
-import { Box, Img } from '@chakra-ui/react'
-import { PrimaryButton, SecondaryButton } from 'components/Button'
+import styled from 'styled-components'
+import { Box, Button, Link, Img } from '@chakra-ui/react'
+
 import CircleArrowRight from 'components/Icons/CircleArrowRight'
 import { Row } from 'components/Row'
-import { waitingText } from 'constants/misc'
-import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
@@ -135,15 +134,46 @@ export default function HeroSection() {
           zIndex={-1}
         />
       </Box>
+
       <Title>Discover through RetroPGF3 community</Title>
-      <SubTitle>Discover through RetroPGF3 community</SubTitle>
+      <SubTitle>Lets explore in Projects and Reviews</SubTitle>
+
       <Row style={{ gap: '24px' }}>
-        <PrimaryButton onClick={() => alert(waitingText)}>
+        <Button
+          href={'https://app.lumina.credit/projects'}
+          as={Link}
+          _hover={{
+            bg: 'primary.500',
+            textDecoration: 'none',
+          }}
+          _active={{
+            bg: 'primary.500',
+          }}
+          backgroundColor="primary.300"
+          color="gray.0"
+        >
           Explore Projects
           <CircleArrowRight style={{ marginLeft: '4px' }} />
-        </PrimaryButton>
+        </Button>
 
-        <SecondaryButton onClick={() => alert(waitingText)}>Explore Reviews</SecondaryButton>
+        <Button
+          href={'https://app.lumina.credit/reviews'}
+          as={Link}
+          _hover={{
+            borderColor: 'gray.100',
+            color: 'gray.100',
+            textDecoration: 'none',
+          }}
+          _active={{
+            borderColor: 'primary.200',
+            color: 'primary.200',
+          }}
+          variant="outline"
+          color="primary.50"
+          borderColor="primary.50"
+        >
+          Explore Reviews
+        </Button>
       </Row>
     </Container>
   )

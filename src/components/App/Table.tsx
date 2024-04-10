@@ -13,6 +13,7 @@ import {
   Button,
   Img,
   Divider,
+  Link,
 } from '@chakra-ui/react'
 import {
   createColumnHelper,
@@ -350,6 +351,8 @@ const Table = () => {
         </ChakraTable>
       </Box>
       <Button
+        href={'https://app.lumina.credit/projects'}
+        as={Link}
         borderRadius="8px"
         marginTop="32px"
         color="gray.0"
@@ -357,7 +360,8 @@ const Table = () => {
         fontSize="md"
         fontWeight="700"
         _hover={{
-          bg: 'primary.400',
+          bg: 'primary.500',
+          textDecoration: 'none',
         }}
         _active={{
           bg: 'primary.500',

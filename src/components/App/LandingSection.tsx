@@ -89,7 +89,8 @@ const LandingSection = ({ imgSrc, title, description, exploreButtonTitle, href, 
           href={href}
           as={Link}
           _hover={{
-            bg: 'primary.400',
+            bg: 'primary.500',
+            textDecoration: 'none',
           }}
           _active={{
             bg: 'primary.500',
@@ -98,21 +99,6 @@ const LandingSection = ({ imgSrc, title, description, exploreButtonTitle, href, 
           color="gray.0"
         >
           {exploreButtonTitle}
-        </Button>
-        <Button
-          _hover={{
-            borderColor: 'primary.100',
-            color: 'primary.100',
-          }}
-          _active={{
-            borderColor: 'primary.200',
-            color: 'primary.200',
-          }}
-          variant="outline"
-          color="primary.50"
-          borderColor="primary.50"
-        >
-          connect to join
         </Button>
       </HStack>
     </GridItem>

@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { isMobileOnly as isMobile } from 'react-device-detect'
+import { Button, Link as chakraLink } from '@chakra-ui/react'
 
 import routes from 'constants/files/routes.json'
 import { Z_INDEX } from 'theme'
 import NavLogo from './NavLogo'
-import { PrimaryButton } from 'components/Button'
-import { waitingText } from 'constants/misc'
 
 const Wrapper = styled.div`
   padding: 0px 2rem;
@@ -105,7 +104,21 @@ export default function NavBar() {
     return (
       <MobileWrapper>
         <NavLogo />
-        <PrimaryButton onClick={() => alert(waitingText)}>Launch App</PrimaryButton>
+        <Button
+          href={'https://app.lumina.credit'}
+          as={chakraLink}
+          _hover={{
+            bg: 'primary.500',
+            textDecoration: 'none',
+          }}
+          _active={{
+            bg: 'primary.500',
+          }}
+          backgroundColor="primary.300"
+          color="gray.0"
+        >
+          Launch App
+        </Button>
       </MobileWrapper>
     )
   }
@@ -125,7 +138,21 @@ export default function NavBar() {
             )
           })}
         </Routes>
-        <PrimaryButton onClick={() => alert(waitingText)}>Launch App</PrimaryButton>
+        <Button
+          href={'https://app.lumina.credit'}
+          as={chakraLink}
+          _hover={{
+            bg: 'primary.500',
+            textDecoration: 'none',
+          }}
+          _active={{
+            bg: 'primary.500',
+          }}
+          backgroundColor="primary.300"
+          color="gray.0"
+        >
+          Launch App
+        </Button>
       </DefaultWrapper>
     )
   }

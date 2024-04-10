@@ -11,7 +11,7 @@ export default function Index() {
       <Table />
       <LandingSection
         id="trusted-community"
-        href="#"
+        href="https://app.lumina.credit"
         title="Trusted Community"
         exploreButtonTitle="Explore in community"
         imgSrc="/static/images/trusted_community.png"
@@ -20,7 +20,7 @@ export default function Index() {
       <LandingSection
         hasShadow
         id="trusted-reviews"
-        href="#"
+        href="https://app.lumina.credit/reviews"
         title="Trusted Reviews"
         exploreButtonTitle="Explore in reviews"
         description="<p>You can easily trust reviews since they are written by trusted community members. However, we may not know them at all! <br/> <br/> This is the beauty of blockchain. We also incorporate algorithms to detect malicious reviews and tag the users as suspicious if necessary. </p>"
