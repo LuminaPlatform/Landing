@@ -135,7 +135,7 @@ export default function HeroSection() {
         />
       </Box>
 
-      <Title>Discover through RetroPGF3 community</Title>
+      <Title>Let your wisdom bring light to Web3</Title>
       <SubTitle>Lets explore in Projects and Reviews</SubTitle>
 
       <Row style={{ gap: '24px' }}>
