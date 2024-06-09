@@ -169,7 +169,11 @@ const Table = ({ projectsData }: TableProps) => {
           />
           <VStack rowGap="6px" margin="0px !important">
             <HStack alignItems="center">
-              <Link href={`/projects/${info.row.original.id}`} textAlign="left" whiteSpace="nowrap">
+              <Link
+                href={`https://app.lumina.credit/projects/${info.row.original.id}`}
+                textAlign="left"
+                whiteSpace="nowrap"
+              >
                 {info.row.original.name}
               </Link>
               <Icon size={18} margin="0px !important" as={PiLinkThin} marginLeft="6px" />
@@ -364,7 +368,8 @@ const Table = ({ projectsData }: TableProps) => {
   })
 
   return (
-    <Box pb="16px" fontFamily="satoshi" width="full">
+    <Box id="retro-rgf3-projects" pb="16px" fontFamily="satoshi" width="full">
+      <Title>RetroPGF3 Projects</Title>
       <ChakraTable bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
         <Thead>
           {table.getHeaderGroups().map((headerGroup) => (
