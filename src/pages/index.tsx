@@ -1,14 +1,40 @@
 import HeroSection from '../components/App/HeroSection'
 import LandingSection from 'components/App/LandingSection'
-import { Container } from '@chakra-ui/react'
+import { Box, Button, Container, Link } from '@chakra-ui/react'
 import About from 'components/App/About'
 import Table from 'components/App/Table'
+import { axiosClient } from 'config/axios'
 
-export default function Index() {
+interface IndexProps {
+  projects: any
+}
+export default function Index({ projects }: IndexProps) {
   return (
     <Container position="relative" pt={['40px', null, '120px']} maxWidth="1280px" px={['20px', null, '40px', '60px']}>
       <HeroSection />
-      <Table />
+      {projects.length !== 0 && (
+        <Box width="full">
+          <Box width="full" overflowX="auto">
+            <Table projectsData={projects} />
+          </Box>
+          <Button
+            mt="24px"
+            href={'https://app.lumina.credit/projects'}
+            as={Link}
+            _hover={{
+              bg: 'primary.500',
+              textDecoration: 'none',
+            }}
+            _active={{
+              bg: 'primary.500',
+            }}
+            backgroundColor="primary.300"
+            color="gray.0"
+          >
+            Explore More
+          </Button>
+        </Box>
+      )}
       <LandingSection
         id="trusted-community"
         href="https://app.lumina.credit"
@@ -29,4 +55,45 @@ export default function Index() {
       <About />
     </Container>
   )
+}
+
+export const getServerSideProps = async () => {
+  try {
+    const postData = {
+      0: {
+        model: 'Project',
+        model_id: 'None',
+        limit: 10,
+        orders: [],
+        fetch_graph: {
+          flex_fields: [
+            {
+              name: 'id',
+            },
+            {
+              name: 'name',
+            },
+            {
+              name: 'logo',
+            },
+            { name: 'content.fundingSources' },
+            { name: 'content.includedInBallots' },
+            { name: 'content.lists.count' },
+            { name: 'content.profile' },
+            { name: 'content.impactCategory' },
+          ],
+        },
+        condition: {},
+      },
+    }
+    const response = await axiosClient.post('/read/fetch/', postData)
+    const projects = await response.data['0']
+    return {
+      props: {
+        projects,
+      },
+    }
+  } catch (error) {
+    return { props: { projects: [] } }
+  }
 }

@@ -49,6 +49,7 @@
     "react-feather": "^2.0.9",
     "react-ga4": "^1.4.1",
     "react-hot-toast": "^2.2.0",
+    "react-icons": "^5.2.1",
     "react-lottie": "^1.2.3",
     "react-paginate": "^8.1.2",
     "react-redux": "^7.2.6",
