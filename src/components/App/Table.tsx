@@ -10,9 +10,7 @@ import {
   Td,
   Th,
   Icon,
-  Button,
   Img,
-  Divider,
   Link,
 } from '@chakra-ui/react'
 import {
@@ -23,10 +21,36 @@ import {
   SortingState,
   useReactTable,
 } from '@tanstack/react-table'
-import { tableData } from 'constants/tableData'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
+import { PiLinkThin } from 'react-icons/pi'
 
+export const primaryCategories = [
+  {
+    value: 0,
+    title: 'COLLECTIVE GOVERNANCE',
+    shortTitle: 'COLL GOV',
+    color: { bg: 'rgba(150, 191, 252, 1)', txt: 'rgba(0, 60, 151, 1)' },
+  },
+  {
+    value: 1,
+    title: 'DEVELOPER ECOSYSTEM',
+    shortTitle: 'DEV ECO',
+    color: { bg: 'rgba(153, 230, 196, 1)', txt: 'rgba(4, 118, 68, 1)' },
+  },
+  {
+    value: 2,
+    title: 'END USER EXPERIENCE AND ADOPTION',
+    shortTitle: 'END UX',
+    color: { bg: 'rgba(255, 234, 150, 1)', txt: 'rgba(156, 124, 0, 1)' },
+  },
+  {
+    value: 3,
+    title: 'OP STACK',
+    shortTitle: 'OP STACK',
+    color: { bg: 'rgba(255, 175, 175, 1)', txt: 'rgba(156, 36, 36, 1)' },
+  },
+]
 const CheckMarkIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -44,6 +68,10 @@ const CheckMarkIcon = () => (
     />
   </svg>
 )
+export const currencyScale = {
+  OP: 1.35,
+  USD: 1,
+}
 
 export const ListIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -113,56 +141,66 @@ export const Title = styled.div`
   `};
 `
 
-type RetroTable = {
-  id: number
-  project: {
-    name: string
-    src: string
-    cryptosImg: Array<{ id: number; src: JSX.Element; title: string }>
-  }
-  category: string
-  allocated: number
-  inBallots: number
-  inLists: number
-  tags: Array<{ id: number; color: { bg: string; txt: string }; title: string; value: number }>
+interface TableProps {
+  projectsData: any
 }
+const Table = ({ projectsData }: TableProps) => {
+  // const networkThreshold = 7;
 
-const Table = () => {
-  const networkThreshold = 7
   const [sorting, setSorting] = useState<SortingState>([])
-  const data = useMemo<RetroTable[]>(() => tableData, [])
-  const columnHelper = createColumnHelper<RetroTable>()
+
+  const columnHelper = createColumnHelper<any>()
 
   const columns = [
     columnHelper.accessor('id', {
-      cell: (info) => info.getValue() + 1,
+      cell: (info) => info.getValue(),
       header: () => '#',
     }),
     columnHelper.accessor('project', {
       cell: (info) => (
         <HStack columnGap="8px" margin="0px !important">
-          <Img rounded="full" width="36px" height="36px" src={info.getValue().src} />
+          <Img
+            rounded="full"
+            width="36px"
+            minW="36px"
+            height="36px"
+            minH="36px"
+            src={info.row.original.content.profile?.profileImageUrl ?? '/static/images/default_project.png'}
+          />
           <VStack rowGap="6px" margin="0px !important">
-            <Text textAlign="left" width="full">
-              {info.getValue().name}
-            </Text>
-            <HStack
+            <HStack alignItems="center">
+              <Link href={`/projects/${info.row.original.id}`} textAlign="left" whiteSpace="nowrap">
+                {info.row.original.name}
+              </Link>
+              <Icon size={18} margin="0px !important" as={PiLinkThin} marginLeft="6px" />
+            </HStack>
+            {/* <HStack
               width="full"
               justifyContent="flex-start"
               columnGap="4px"
               margin="0px !important"
-              {...(info.getValue().cryptosImg.length <= 3 && {
+              {...(info.getValue()?.cryptosImg.length <= 3 && {
                 divider: (
-                  <Divider rounded="full" margin="0px !important" width="1px" height="1px" borderColor="gray.60" />
+                  <Divider
+                    rounded="full"
+                    margin="0px !important"
+                    width="1px"
+                    height="1px"
+                    borderColor="gray.60"
+                  />
                 ),
               })}
             >
               {info
                 .getValue()
-                .cryptosImg.slice(0, networkThreshold)
+                ?.cryptosImg.slice(0, networkThreshold)
                 .map((img) =>
                   info.getValue().cryptosImg.length <= 3 ? (
-                    <HStack columnGap="2px" margin="0px !important">
+                    <HStack
+                      key={img.id}
+                      columnGap="2px"
+                      margin="0px !important"
+                    >
                       {img.src}
                       <Text
                         margin="0px !important"
@@ -179,22 +217,50 @@ const Table = () => {
                     img.src
                   )
                 )}
-              {info.getValue().cryptosImg.length > networkThreshold && (
-                <Text margin="0px !important">+{info.getValue().cryptosImg.length - networkThreshold}</Text>
+              {info.getValue()?.cryptosImg.length > networkThreshold && (
+                <Text margin="0px !important">
+                  +{info.getValue().cryptosImg.length - networkThreshold}
+                </Text>
               )}
-            </HStack>
+            </HStack> */}
           </VStack>
         </HStack>
       ),
       header: () => <span>Project</span>,
-    }),
-    columnHelper.accessor('category', {
-      header: () => 'Category',
-      cell: (info) => info.renderValue(),
+      sortingFn: (rowA, rowB) => {
+        const columnAData: any = rowA.original.name
+        const columnBData: any = rowB.original.name
+
+        return columnAData < columnBData ? 1 : -1
+      },
     }),
     columnHelper.accessor('allocated', {
       header: () => 'Allocated',
-      cell: (info) => <Text>{info.getValue() / 1000}K OP </Text>,
+      cell: (info) => (
+        <Text>
+          {(
+            info.row.original.content.fundingSources.data.reduce(
+              (accumulator, currentVal) => +currentVal.amount * currencyScale[currentVal.currency] + accumulator,
+              0
+            ) / 1000
+          ).toFixed(1)}
+          K $
+        </Text>
+      ),
+      sortingFn: (rowA, rowB) => {
+        const columnAData: any =
+          rowA.original.content.fundingSources.data.reduce(
+            (accumulator, currentVal) => +currentVal.amount * currencyScale[currentVal.currency] + accumulator,
+            0
+          ) / 1000
+        const columnBData: any =
+          rowB.original.content.fundingSources.data.reduce(
+            (accumulator, currentVal) => +currentVal.amount * currencyScale[currentVal.currency] + accumulator,
+            0
+          ) / 1000
+
+        return columnAData < columnBData ? 1 : -1
+      },
     }),
     columnHelper.accessor('inBallots', {
       header: 'In Ballots',
@@ -208,62 +274,86 @@ const Table = () => {
           }}
           margin="0px !important"
         >
-          <Text>{info.getValue()}</Text>
+          <Text>{info.row.original.content.includedInBallots}</Text>
           <Icon as={CheckMarkIcon} />
         </HStack>
       ),
+      sortingFn: (rowA, rowB) => {
+        const columnAData: any = rowA.original.content.includedInBallots
+        const columnBData: any = rowB.original.content.includedInBallots
+
+        return columnAData < columnBData ? 1 : -1
+      },
     }),
     columnHelper.accessor('inLists', {
       header: 'In List',
       cell: (info) => (
         <HStack margin="0px !important">
-          <Text>{info.getValue()}</Text>
+          <Text>{info.row.original.content.lists.count}</Text>
           <Icon as={ListIcon} />
         </HStack>
       ),
+      sortingFn: (rowA, rowB) => {
+        const columnAData: any = rowA.original.content.lists
+        const columnBData: any = rowB.original.content.lists
+
+        return columnAData < columnBData ? 1 : -1
+      },
     }),
     columnHelper.accessor('tags', {
       sortingFn: (rowA, rowB, columnId) => {
-        const columnAData: RetroTable['tags'] = rowA.getValue(columnId)
-        const columnBData: RetroTable['tags'] = rowB.getValue(columnId)
+        const columnAData: any = rowA.original.content?.impactCategory.data
+        const columnBData: any = rowB.original.content?.impactCategory.data
 
-        const rowAMinValue: RetroTable['tags'][0]['value'] = columnAData.reduce((min, obj) => {
-          return obj.value < min ? obj.value : min
-        }, columnAData[0].value)
-
-        const rowBMinValue: RetroTable['tags'][0]['value'] = columnBData.reduce((min, obj) => {
-          return obj.value < min ? obj.value : min
-        }, columnBData[0].value)
-        console.log({ rowAMinValue, rowBMinValue })
+        const rowAMinValue: any = columnAData.reduce(
+          (min, categoryTitle) => {
+            const foundCategory = primaryCategories.find((item) => item.title === categoryTitle.split('_').join(' '))
+            return foundCategory.value < min ? foundCategory.value : min
+          },
+          primaryCategories.find((item) => item.title === columnAData[0].split('_').join(' '))
+        )
+        const rowBMinValue: any = columnBData.reduce(
+          (min, categoryTitle) => {
+            const foundCategory = primaryCategories.find((item) => item.title === categoryTitle.split('_').join(' '))
+            return foundCategory.value < min ? foundCategory.value : min
+          },
+          primaryCategories.find((item) => item.title === columnBData[0].split('_').join(' '))
+        )
 
         return rowAMinValue < rowBMinValue ? 1 : -1
       },
       header: 'RetroPGF Tags',
       cell: (info) => (
         <HStack columnGap="4px" margin="0px !important">
-          {info.getValue().map((item) => (
-            <Text
-              whiteSpace="nowrap"
-              borderRadius="12px"
-              height="24px"
-              lineHeight="24px"
-              px="8px"
-              fontSize="xs"
-              fontWeight="bold"
-              key={item.id}
-              color={item.color.txt}
-              bg={item.color.bg}
-            >
-              {item.title}
-            </Text>
-          ))}
+          {info.row.original.content?.impactCategory?.data.map((item) => {
+            const value = primaryCategories.find((pc) => pc.title === item.split('_').join(' '))
+            if (value) {
+              return (
+                <Text
+                  whiteSpace="nowrap"
+                  borderRadius="12px"
+                  height="24px"
+                  lineHeight="24px"
+                  px="8px"
+                  fontSize="xs"
+                  fontWeight="bold"
+                  key={item.id}
+                  color={value?.color.txt}
+                  bg={value?.color.bg}
+                >
+                  {value?.shortTitle}
+                </Text>
+              )
+            }
+            return null
+          })}
         </HStack>
       ),
     }),
   ]
 
   const table = useReactTable({
-    data,
+    data: projectsData,
     columns,
     getCoreRowModel: getCoreRowModel(),
     state: {
@@ -274,101 +364,59 @@ const Table = () => {
   })
 
   return (
-    <Box id="retro-rgf3-projects" position="relative" width="full" pt="24px">
-      <Box
-        zIndex={-1}
-        rounded="full"
-        width="200px"
-        height="200px"
-        opacity="0.2"
-        position="absolute"
-        left="0px"
-        top="0px"
-        boxShadow={`0 0 ${200}px ${200}px rgba(255, 136, 0, 0.5)`}
-        backgroundColor="rgba(255, 136, 0, 0.5)"
-      />
-      <Title>RetroPGF3 Projects</Title>
-      <Box fontFamily="satoshi" overflow="auto" width="full">
-        <ChakraTable bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
-          <Thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <Tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <Th
-                    fontFamily="satoshi"
-                    borderColor="gray.600"
-                    onClick={header.column.getToggleSortingHandler()}
-                    whiteSpace="nowrap"
-                    p="12px 22px !important"
-                    fontSize="16px"
-                    fontWeight="bold"
-                    color="gray.60"
-                    key={header.id}
-                  >
-                    {console.log(header.column.getIsSorted())}
-                    <HStack>
-                      <Text>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
-                      {header.column.getIsSorted() === 'asc' ? (
-                        <Box>
-                          <Icon as={ArrowDown} />
-                        </Box>
-                      ) : header.column.getIsSorted() === 'desc' ? (
-                        <Box transform="rotate(180deg)">
-                          <Icon as={ArrowDown} />
-                        </Box>
-                      ) : null}
-                    </HStack>
-                  </Th>
-                ))}
-              </Tr>
-            ))}
-          </Thead>
-          <Tbody>
-            {table.getRowModel().rows.map((row) => (
-              <Tr
-                _last={{
-                  td: {
-                    border: 'none',
-                  },
-                }}
-                key={row.id}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <Td
-                    borderColor="gray.600"
-                    p="12px 22px"
-                    color="gray.0"
-                    fontSize="16px"
-                    fontWeight="500"
-                    key={cell.id}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </Td>
-                ))}
-              </Tr>
-            ))}
-          </Tbody>
-        </ChakraTable>
-      </Box>
-      <Button
-        href={'https://app.lumina.credit/projects'}
-        as={Link}
-        borderRadius="8px"
-        marginTop="32px"
-        color="gray.0"
-        bg="primary.300"
-        fontSize="md"
-        fontWeight="700"
-        _hover={{
-          bg: 'primary.500',
-          textDecoration: 'none',
-        }}
-        _active={{
-          bg: 'primary.500',
-        }}
-      >
-        Explore more
-      </Button>
+    <Box pb="16px" fontFamily="satoshi" width="full">
+      <ChakraTable bg="gray.800" borderRadius="16px" zIndex={10} position="relative">
+        <Thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <Tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <Th
+                  fontFamily="satoshi"
+                  borderColor="gray.600"
+                  onClick={header.column.getToggleSortingHandler()}
+                  whiteSpace="nowrap"
+                  p="12px 22px !important"
+                  fontSize="16px"
+                  fontWeight="bold"
+                  color="gray.60"
+                  key={header.id}
+                >
+                  <HStack>
+                    <Text>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
+                    {header.column.getIsSorted() === 'asc' ? (
+                      <Box>
+                        <Icon as={ArrowDown} />
+                      </Box>
+                    ) : header.column.getIsSorted() === 'desc' ? (
+                      <Box transform="rotate(180deg)">
+                        <Icon as={ArrowDown} />
+                      </Box>
+                    ) : null}
+                  </HStack>
+                </Th>
+              ))}
+            </Tr>
+          ))}
+        </Thead>
+        <Tbody>
+          {table.getRowModel().rows.map((row) => (
+            <Tr
+              _last={{
+                td: {
+                  border: 'none',
+                },
+              }}
+              key={row.id}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <Td borderColor="gray.600" p="12px 22px" color="gray.0" fontSize="16px" fontWeight="500" key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </Td>
+              ))}
+            </Tr>
+          ))}
+        </Tbody>
+      </ChakraTable>
     </Box>
   )
 }
