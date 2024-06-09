@@ -27,7 +27,7 @@ export const Title = styled.div`
 `
 
 export const SubTitle = styled(Title)`
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 400;
   line-height: 38px;
   color: ${({ theme }) => theme.G60};
@@ -135,8 +135,11 @@ export default function HeroSection() {
         />
       </Box>
 
-      <Title>Let your wisdom bring light to Web3</Title>
-      <SubTitle>Lets explore in Projects and Reviews</SubTitle>
+      <Title>WEB3 SOCIAL CURATION HUB</Title>
+      <SubTitle>
+        Let your wisdom bring light to the decentralized world. Join, share, and navigate its landscape with insights
+        from your trusted network.
+      </SubTitle>
 
       <Row style={{ gap: '24px' }}>
         <Button
