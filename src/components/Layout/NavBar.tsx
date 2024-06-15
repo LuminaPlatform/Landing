@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { isMobileOnly as isMobile } from 'react-device-detect'
-import { Button, Link as chakraLink } from '@chakra-ui/react'
+import { Button, Img, Link as ChakraLink } from '@chakra-ui/react'
 
 import routes from 'constants/files/routes.json'
 import { Z_INDEX } from 'theme'
-import NavLogo from './NavLogo'
 
 const Wrapper = styled.div`
   padding: 0px 2rem;
@@ -103,10 +102,12 @@ export default function NavBar() {
   function getMobileContent() {
     return (
       <MobileWrapper>
-        <NavLogo />
+        <ChakraLink mb="24px" href="https://lumina.credit" target="_self">
+          <Img src="/static/images/Lumina.svg" width="104px" height="38px" />
+        </ChakraLink>
         <Button
           href={'https://app.lumina.credit'}
-          as={chakraLink}
+          as={ChakraLink}
           _hover={{
             bg: 'primary.500',
             textDecoration: 'none',
@@ -126,7 +127,9 @@ export default function NavBar() {
   function getDefaultContent() {
     return (
       <DefaultWrapper>
-        <NavLogo />
+        <ChakraLink mb="24px" href="https://lumina.credit" target="_self">
+          <Img src="/static/images/Lumina.svg" width="104px" height="38px" />
+        </ChakraLink>
         <Routes>
           {routes.map((item) => {
             return (
@@ -140,7 +143,7 @@ export default function NavBar() {
         </Routes>
         <Button
           href={'https://app.lumina.credit'}
-          as={chakraLink}
+          as={ChakraLink}
           _hover={{
             bg: 'primary.500',
             textDecoration: 'none',
