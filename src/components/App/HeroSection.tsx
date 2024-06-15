@@ -27,8 +27,8 @@ export const Title = styled.div`
 `
 
 export const SubTitle = styled(Title)`
-  font-size: 25px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 38px;
   color: ${({ theme }) => theme.G60};
   ${({ theme }) => theme.mediaWidth.upToSmall`
