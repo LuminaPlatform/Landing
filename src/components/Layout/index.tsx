@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { TbChevronUp } from 'react-icons/tb'
 import NavBar from './NavBar'
-import { Footer, Disclaimer, LogoLine } from 'components/Disclaimer'
-import { Box, Img } from '@chakra-ui/react'
+import { Footer, Disclaimer } from 'components/Disclaimer'
+import { Box, Button, Img, Link } from '@chakra-ui/react'
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,9 +44,28 @@ const GradientLine = styled.div`
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Wrapper>
-      <NavBar />
+      <Box py="19px">
+        <NavBar />
+      </Box>
       <Content>{children}</Content>
-      <LogoLine />
+      <Button
+        onClick={() => {
+          if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+          }
+        }}
+        bg="transparent"
+        _hover={{ bg: 'transparent' }}
+        _active={{ bg: 'transparent' }}
+        mb="36px"
+        boxSize="72px"
+        mx="auto"
+      >
+        <TbChevronUp fontSize="40px" />
+      </Button>
+      <Link mb="24px" mx="auto" href="https://lumina.credit" target="_self">
+        <Img src="/static/images/Lumina.svg" width="176px" height="64px" />
+      </Link>
       <GradientLine />
       <Footer />
       <GradientLine />
