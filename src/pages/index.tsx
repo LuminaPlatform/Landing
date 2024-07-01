@@ -65,8 +65,8 @@ export const getServerSideProps = async () => {
         model_id: 'None',
         limit: 10,
         orders: [],
-        fetch_graph: {
-          flex_fields: [
+        graph: {
+          fetch_fields: [
             {
               name: 'id',
             },
