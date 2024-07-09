@@ -44,7 +44,7 @@ const GradientLine = styled.div`
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Wrapper>
-      <Box py="19px">
+      <Box position="relative" zIndex={1} py="19px">
         <NavBar />
       </Box>
       <Content>{children}</Content>
