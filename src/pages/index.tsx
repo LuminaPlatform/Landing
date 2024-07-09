@@ -74,7 +74,7 @@ export const getServerSideProps = async () => {
               name: 'name',
             },
             {
-              name: 'logo',
+              name: 'logo_id',
             },
             { name: 'content.fundingSources' },
             { name: 'content.includedInBallots' },
